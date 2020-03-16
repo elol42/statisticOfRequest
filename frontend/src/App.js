@@ -1,11 +1,23 @@
 import React from 'react';
-// import logo from './logo.svg';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import './App.css';
+import { FirstPage } from './FirstPage'
+
+
+
 
 export const App = () => {
-  return(
-    <h1>Hello!</h1>
-  )
+  return ( 
+    // <section>
+    //   < GaugeChart />
+    // </section>
+    // <BrowserRouter>
+    //  <Switch>
+     < FirstPage  />
+    //  </Switch>
+    
+    // {/* </BrowserRouter> */}
+  ) 
 }
 
 export default App;

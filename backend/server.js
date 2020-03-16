@@ -16,6 +16,8 @@ const Company = mongoose.model('Company', {
 })
 
 const seedDatabase = async () => {
+  await Company.deleteMany()
+
     const company1 = new Company({ name: 'Company NR1' })
     await company1.save()
 
