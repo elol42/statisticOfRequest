@@ -12,17 +12,55 @@ mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
 mongoose.Promise = Promise
 
 const Company = mongoose.model('Company', {
-        name: String
+        name: String,
+        totaltSum: Number,
+        events: [{name: String, value: String}],
 })
 
 const seedDatabase = async () => {
   await Company.deleteMany()
 
-    const company1 = new Company({ name: 'Company NR1' })
+    const company1 = new Company({ name: 'Company NR1', totalSum: 400, events: [
+      { name: 'Agent', value: 100 },
+      { name: 'Agent', value: 100 },
+      { name: 'Google', value: 25 },
+      { name: 'Google', value: 25 },
+      { name: 'Google', value: 25 },
+      { name: 'Google', value: 25 },
+      { name: 'Google', value: 25 },
+      { name: 'Wavenet', value: 50 },
+      { name: 'Wavenet', value: 50 },
+    ] })
     await company1.save()
 
-    const company2 = new Company({ name: 'Company NR2' })
+    const company2 = new Company({ name: 'Company NR2', totalSum: 450, events: [
+      { name: 'Agent', value: 100 },
+      { name: 'Agent', value: 100 },
+      { name: 'Google', value: 25 },
+      { name: 'Google', value: 25 },
+      { name: 'Google', value: 25 },
+      { name: 'Google', value: 25 },
+      { name: 'Google', value: 25 },
+      { name: 'Wavenet', value: 50 },
+      { name: 'Wavenet', value: 50 },
+      { name: 'Wavenet', value: 50 },
+    ] })
     await company2.save()
+
+    const company3 = new Company({ name: 'Company NR3', totalSum: 550, events: [
+      { name: 'Agent', value: 150 },
+      { name: 'Agent', value: 150 },
+      { name: 'Google', value: 25 },
+      { name: 'Google', value: 25 },
+      { name: 'Google', value: 25 },
+      { name: 'Google', value: 25 },
+      { name: 'Google', value: 25 },
+      { name: 'Wavenet', value: 50 },
+      { name: 'Wavenet', value: 50 },
+      { name: 'Wavenet', value: 50 },
+    ] })
+    await company3.save()
+
 }
 seedDatabase()
 
@@ -32,14 +70,18 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-    res.send('Statistics')
+app.get('/', async (req, res) => {
+  const totalSum = await Company.find()
+    res.send(totalSum)
   })
 
   app.get('/company', async (req, res) => {
     const companies = await Company.find()
     res.json(companies)
   })
+
+
+
 
 
 
