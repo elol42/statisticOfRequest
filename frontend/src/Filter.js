@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './filter.css'
 
 
 export const Filter = () => {
@@ -11,7 +12,7 @@ export const Filter = () => {
 
     return (
 
-        <div className="dropdwon-menu">
+        <div className="dropdwonMenu">
         <select className="dropdown" onChange={event => setCompany(event.target.value)}
           value={company}>
           

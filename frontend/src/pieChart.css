@@ -1,4 +1,11 @@
 #chartdiv {
-    width: 100%;
-    height: 300px;
+    width: 80%;
+    height: 7rem;
+    font-size: 0.8rem;
+  }
+
+  .chartSection {
+    display: flex;
+    justify-content: center;
+    align-content: center;
   }

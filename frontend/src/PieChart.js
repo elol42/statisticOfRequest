@@ -30,7 +30,6 @@ export class PieChart extends Component {
       hs.properties.scale = 1.1;
       hs.properties.fillOpacity = 0.5;
 
-
       this.chart = chart;
     }
   
@@ -42,7 +41,9 @@ export class PieChart extends Component {
 
   render() {
     return (
+      <secction className="chartSection">
       <div id="chartdiv"></div>
+      </secction>
     );
   }
 }
