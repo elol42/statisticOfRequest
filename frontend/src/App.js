@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import './App.css';
 import { FirstPage } from './FirstPage'
-
+import { LogInSite} from './LogInSite'
 
 
 
@@ -13,7 +13,10 @@ export const App = () => {
     // </section>
     // <BrowserRouter>
     //  <Switch>
+    <section>
      < FirstPage  />
+     < LogInSite />
+     </section>
     //  </Switch>
     
     // {/* </BrowserRouter> */}

@@ -19,12 +19,13 @@ return(
                     <div>
                         < InfoOnFirstpage />
                     </div>
-                    <div>
-                        < Filter />
-                    </div>
+                    
                         <div>
                         < PieChart  />
                         </div>
+                        <div>
+                        < Filter />
+                    </div>
                 </div>
             </section>
 )

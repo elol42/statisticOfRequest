@@ -9,22 +9,13 @@ export class PieChart extends Component {
     //   let chart = am4core.create("chartdiv", am4charts.XYChart);
       const chart = am4core.create("chartdiv", am4charts.PieChart);
   
-      // ... chart code goes here ...
-      chart.data = [{
-        "event": "Google API",
-        "amountOfEvent": 110
-      }, {
-        "event": "Wavenet Voice",
-        "amountOfEvent": 90
-      }, {
-        "event": "Agent Transaction",
-        "amountOfEvent": 120
-      }];
+      chart.dataSource.url = "http://localhost:8080/total";
+
       
       // Add and configure Series
       const pieSeries = chart.series.push(new am4charts.PieSeries());
-      pieSeries.dataFields.value = "amountOfEvent";
-      pieSeries.dataFields.category = "event";
+      pieSeries.dataFields.value = "value";
+      pieSeries.dataFields.category = "name";
 
       const hs = pieSeries.slices.template.states.getKey("hover");
       hs.properties.scale = 1.1;
